@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>O projekte – Obedové menu v okolí FEI STU</title>
+  <meta name="description" content="Zdroje dát, spôsob spracovania a použité knižnice projektu Obedové menu.">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="lib/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="topbar">Menu sa ukladá v prehliadači a obnovuje sa raz denne.</div>
+  <header class="site-header">
+    <a class="brand" href="index.html">Obedové menu</a>
+    <p class="tagline">v okolí FEI STU</p>
+  </header>
+  <nav class="site-nav" aria-label="Hlavná navigácia">
+    <ul>
+      <li><a href="index.html">Menu</a></li>
+      <li><a href="o-projekte.html" aria-current="page">O projekte</a></li>
+      <li><a href="#napiste-nam">Napíšte nám</a></li>
+    </ul>
+  </nav>
+  <div class="hero" aria-hidden="true"></div>
+
+  <main class="container panel about">
+    <h1 class="page-title">O projekte</h1>
+
+    <section aria-labelledby="h-zdroje">
+      <h2 id="h-zdroje">Odkiaľ sa dáta berú</h2>
+      <ul>
+        <li><a href="https://eatandmeet.sk/tyzdenne-menu">Eat &amp; Meet</a> – týždenné menu v záložkách po dňoch.</li>
+        <li><a href="https://restauraciariviera.sk/obedove-menu/">Reštaurácia Riviera</a> – menu zapísané v odsekoch s nadpismi dní.</li>
+        <li><a href="http://www.freefood.sk/menu/">FreeFood</a> – tri výdajne (Matika, Fyzika, FIIT STU) v jednej stránke.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="h-spracovanie">
+      <h2 id="h-spracovanie">Spracovávanie dát</h2>
+      <ol>
+        <li>Načítanie stránky cez jQuery AJAX (zatiaľ z lokálnej kópie v priečinku <code>data/</code>).</li>
+        <li>Spracovanie sa textu cez <code>DOMParser</code> a vyhľadávanie v DOM strome.</li>
+        <li>Prevod údajov do jednotnej štruktúry (deň, dátum, typ, názov, cena, hmotnosť, alergény) vlastnou funkciou pre každú reštauráciu.</li>
+        <li>Uloženie výsledku do <code>localStorage</code> (stránky sa znova nenačítavajú, ak sú dáta z dnešného dňa).</li>
+        <li>Zobrazenie chyby len v bloku danej reštaurácie, ostatné fungujú ďalej.</li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="h-kniznice">
+      <h2 id="h-kniznice">Použité knižnice</h2>
+      <ul>
+        <li>Bootstrap 5.3.3 (MIT) – mriežka, tlačidlá, formulár.</li>
+        <li>jQuery 3.7.1 (MIT) – AJAX a práca s DOM.</li>
+        <li>Písmo Poppins (SIL Open Font License 1.1), načítané lokálne cez <code>@font-face</code>.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="napiste-nam" id="napiste-nam-sekcia">
+      <h2 id="napiste-nam">Napíšte nám</h2>
+      <form id="contactForm" class="contact-form" novalidate>
+        <div class="mb-3">
+          <label class="form-label" for="cf-name">Meno</label>
+          <input class="form-control" id="cf-name" name="name" type="text" required autocomplete="name">
+          <div class="invalid-feedback">Zadajte meno.</div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="cf-mail">E-mail</label>
+          <input class="form-control" id="cf-mail" name="email" type="email" required autocomplete="email">
+          <div class="invalid-feedback">Zadajte platný e-mail.</div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="cf-msg">Správa</label>
+          <textarea class="form-control" id="cf-msg" name="message" rows="4" required></textarea>
+          <div class="invalid-feedback">Napíšte správu.</div>
+        </div>
+        <button type="submit" class="btn btn-dark">Odoslať správu</button>
+        <div id="cf-result" class="mt-3" role="status"></div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Zadanie WEBTE1 č. 2 · Serhii Bihotskyi</p>
+  </footer>
+
+  <script src="lib/jquery.min.js"></script>
+  <script src="js/form.js"></script>
+</body>
+</html>

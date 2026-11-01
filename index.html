@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Obedové menu v okolí FEI STU</title>
+  <meta name="description" content="Denné menu jedální a reštaurácií v okolí FEI STU na jednom mieste.">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="lib/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="topbar">Menu sa ukladá v prehliadači a obnovuje sa raz denne.</div>
+  <header class="site-header">
+    <a class="brand" href="index.html">Obedové menu</a>
+    <p class="tagline">v okolí FEI STU</p>
+  </header>
+  <nav class="site-nav" aria-label="Hlavná navigácia">
+    <ul>
+      <li><a href="index.html" aria-current="page">Menu</a></li>
+      <li><a href="o-projekte.html">O projekte</a></li>
+      <li><a href="o-projekte.html#napiste-nam">Napíšte nám</a></li>
+    </ul>
+  </nav>
+  <div class="hero" aria-hidden="true"></div>
+
+  <main class="container panel">
+    <h1 class="page-title">Čo je dnes na obed</h1>
+    <p class="lead-text">Denné menu jedální a reštaurácií okolo FEI STU v jednotnom prehľade.</p>
+
+    <div class="toolbar">
+      <div class="day-tabs" id="dayTabs" role="group" aria-label="Zobrazenie dňa">
+        <button type="button" class="btn btn-day" data-day="0">Pondelok</button>
+        <button type="button" class="btn btn-day" data-day="1">Utorok</button>
+        <button type="button" class="btn btn-day" data-day="2">Streda</button>
+        <button type="button" class="btn btn-day" data-day="3">Štvrtok</button>
+        <button type="button" class="btn btn-day" data-day="4">Piatok</button>
+        <button type="button" class="btn btn-day" data-day="all">Celý týždeň</button>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn btn-dark" id="btnUpdate">Aktualizovať menu</button>
+        <button type="button" class="btn btn-outline-dark" id="btnClear">Vymazať uložené dáta</button>
+      </div>
+    </div>
+
+    <fieldset class="filters">
+      <legend>Zobraziť reštaurácie</legend>
+      <div id="filters"></div>
+    </fieldset>
+
+    <div id="loader" class="loader d-none" role="status">
+      <span class="spinner-border spinner-border-sm" aria-hidden="true"></span> Načítavam menu…
+    </div>
+    <div id="notice" class="alert alert-warning d-none" role="alert"></div>
+
+    <h2 id="dayHeading" class="day-heading"></h2>
+    <div id="menu" class="row g-4"></div>
+  </main>
+
+  <footer class="site-footer">
+    <p>Zadanie WEBTE1 č. 2 · Serhii Bihotskyi · Použité knižnice: Bootstrap, jQuery, písmo Poppins (<a href="o-projekte.html">O projekte</a>)</p>
+  </footer>
+
+  <script src="lib/jquery.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
