@@ -15,17 +15,9 @@ Stránka zobrazuje denné menu reštaurácií a jedální v okolí FEI STU. Vše
 
 Každý zdroj má inú štruktúru HTML, preto má vlastný parser v `js/app.js` (`parseEatAndMeet`, `parseRiviera`, `parseFreeFood`). Nová reštaurácia sa pridá novým záznamom v poli `RESTAURANTS` a vlastnou parsovacou funkciou, ktorá vráti jednotné objekty.
 
-## Spustenie
+## Odkaz
 
-Stránky reštaurácií sa načítavajú cez AJAX z lokálnych kópií v priečinku `data/`, takže stránku treba otvoriť cez HTTP server, nie priamo zo súboru (`file://` AJAX blokuje):
-
-```
-python3 -m http.server 8000
-```
-
-Potom otvorte `http://localhost:8000/`. Na školskom serveri stačí nahrať obsah archívu.
-
-V priečinku `data/` musia byť kópie stránok: `eatandmeet.html`, `riviera.html`, `freefood.html`.
+Stránka je dostupná na adrese URL: https://webte1.fei.stuba.sk/~xbihotskyipavli/o-projekte.html
 
 ## Štruktúra
 
